@@ -3,154 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Simple Google-like homepage with shortcuts">
-  <title>Simple Homepage</title>
+  <title>My Homepage</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png" alt="Google Logo">
+      <h1>MyHomepage</h1>
     </div>
-
+    
     <div class="search-box">
       <input type="text" class="search-input" placeholder="Search...">
-    </div>
-
-    <div class="buttons">
-      <button class="search-button">Google Search</button>
-      <button class="lucky-button">I'm Feeling Lucky</button>
+      <button class="search-button">Search</button>
     </div>
 
     <div class="shortcuts">
-      <a href="https://www.youtube.com" target="_blank" class="shortcut-link">
-        <img src="https://www.iconfinder.com/data/icons/social-media-2210/24/Youtube-512.png" alt="YouTube" class="shortcut-icon">
-        YouTube
+      <!-- YouTube Shortcut -->
+      <a href="https://www.youtube.com" target="_blank" class="shortcut">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+        <p>YouTube</p>
       </a>
 
-      <div class="add-shortcut">
+      <!-- Facebook Shortcut -->
+      <a href="https://www.facebook.com" target="_blank" class="shortcut">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        <p>Facebook</p>
+      </a>
+
+      <!-- E-Library Shortcut -->
+      <a href="https://www.example-elibrary.com" target="_blank" class="shortcut">
+        <img src="https://via.placeholder.com/50" alt="E-Library">
+        <p>E-Library</p>
+      </a>
+
+      <!-- Gmail Shortcut -->
+      <a href="https://mail.google.com" target="_blank" class="shortcut">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" alt="Gmail">
+        <p>Gmail</p>
+      </a>
+
+      <!-- Add Shortcut Symbol -->
+      <div class="shortcut add-shortcut">
         <span>+</span>
         <p>Add Shortcut</p>
       </div>
     </div>
   </div>
-  <link>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f2fff0; /* Very, very light green */
-  }
-  
-  .container {
-    text-align: center;
-  }
-  
-  .logo img {
-    width: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .search-box {
-    margin: 20px 0;
-  }
-  
-  .search-input {
-    width: 500px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #dcdcdc;
-    border-radius: 24px;
-    outline: none;
-  }
-  
-  .search-input:focus {
-    border-color: #4285f4;
-  }
-  
-  .buttons {
-    margin-top: 20px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 14px;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .search-button {
-    background-color: #4285f4;
-    color: white;
-    border: none;
-  }
-  
-  .search-button:hover {
-    background-color: #357ae8;
-  }
-  
-  .lucky-button {
-    background-color: #f8f8f8;
-    color: #4285f4;
-  }
-  
-  .lucky-button:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Shortcuts Section */
-  .shortcuts {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .shortcut-link {
-    text-decoration: none;
-    font-size: 14px;
-    color: #000;
-    text-align: center;
-  }
-  
-  .shortcut-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px;
-  }
-  
-  .add-shortcut {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .add-shortcut span {
-    font-size: 30px;
-    font-weight: bold;
-    color: #4285f4;
-  }
-  
-  .add-shortcut p {
-    font-size: 14px;
-    color: #4285f4;
-  }
-<link>  
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .logo h1 {
+      font-size: 36px;
+      color: #4285f4;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .search-input {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+    }
+
+    .search-button:hover {
+      background-color: #357ae8;
+    }
+
+    .shortcuts {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .shortcut {
+      text-decoration: none;
+      text-align: center;
+      color: #000;
+    }
+
+    .shortcut img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .shortcut p {
+      font-size: 14px;
+    }
+
+    .add-shortcut {
+      cursor: pointer;
+      color: #4285f4;
+      font-size: 24px;
+    }
+
+    .add-shortcut span {
+      display: block;
+      font-size: 30px;
+    }
+
+    .add-shortcut:hover {
+      color: #0056b3;
+    }
+  </style>
 </body>
 </html>
