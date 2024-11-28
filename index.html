@@ -1,116 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Child Psychology Friendly Platform</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simple Google-like homepage with shortcuts">
+  <title>Simple Homepage</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class="box">
-            <!-- Photo Upload Section -->
-            <div class="photo-upload">
-                <input type="file" id="photo" accept="image/*">
-            </div>
-            
-            <!-- Name Fields -->
-            <div class="name-fields">
-                <div class="input-box">
-                    <label for="user-name">User's Name:</label>
-                    <input type="text" id="user-name" placeholder="Enter your name">
-                </div>
-                <div class="input-box">
-                    <label for="parent-name">Parent's Name:</label>
-                    <input type="text" id="parent-name" placeholder="Enter parent's name">
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="logo">
+      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png" alt="Google Logo">
     </div>
-    <style>body {
-        margin: 0;
-        padding: 0;
-        background-color: #e0f9e9; /* Light light light green */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    
-    /* Centered Box with black border */
-    .main-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .box {
-        width: 50%;
-        height: 70%;
-        border: 3px solid black;
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        border-radius: 10px;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    /* Photo Upload Section */
-    .photo-upload {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 13%;
-        height: 13%;
-        margin-bottom: 30px;
-        border-radius: 50%;
-        overflow: hidden;
-        background-color: #f1f1f1; /* Light background color */
-    }
-    
-    input[type="file"] {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        cursor: pointer;
-    }
-    
-    /* Input Boxes for Names (User and Parent) */
-    .name-fields {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .input-box {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .input-box input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 15px;
-        border: 1px solid #ccc;
-        background-color: #f9f9f9; /* Light light grey background */
-        font-size: 16px;
-    }
-    
-    .input-box label {
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: #555;
-    }</style>
-</body>
-</html>
+
+    <div class="search-box">
+      <input type="text" class="search-input" placeholder="Search...">
+    </div>
+
+    <div class="buttons">
+      <button class="search-button">Google Search</button>
+      <button class="lucky-button">I'm Feeling Lucky</button>
+    </div>
+
+    <div class="shortcuts">
+      <a href="https://www.youtube.com" target="_blank" class="shortcut-link">
+        <img src="https://www.iconfinder.com/data/icons/social-media-2210/24/Youtube-512.png" alt="YouTube" class="shortcut-icon">
+        YouTube
+      </a>
+
+      <div class="add-shortcut">
+        <span>+</span>
+        <p>Add Shortcut</p>
+      </div>
+    </div>
+  </div>
+  <link>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2fff0; /* Very, very light green */
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .search-box {
+    margin: 20px 0;
+  }
+  
+  .search-input {
+    width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 24px;
+    outline: none;
+  }
+  
+  .search-input:focus {
+    border-color: #4285f4;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .search-button {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+  }
+  
+  .search-button:hover {
+    background-color: #357ae8;
+  }
+  
+  .lucky-button {
+    background-color: #f8f8f8;
+    color: #4285f4;
+  }
+  
+  .lucky-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Shortcuts Section */
+  .shortcuts {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .shortcut-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+  }
+  
+  .shortcut-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+  
+  .add-shortcut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .add-shortcut span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4285f4;
+  }
+  
+  .add-shortcut p {
+    font-size: 14px;
+    color: #4285f4;
+  }
+<link>  
 </body>
 </html>
