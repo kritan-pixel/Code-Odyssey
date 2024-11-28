@@ -22,10 +22,11 @@
             box-shadow: 0 2px 10px rgba(143, 106, 106, 0.1);
             text-align: center;
         }
-        .placeholder {
-            font-size: 24px;
-            color: #000000;
+        img {
+            width: 100px;
+            height: 100px;
             margin-bottom: 20px;
+            border-radius: 50%;
         }
         input[type="email"], input[type="password"] {
             width: 100%;
@@ -39,7 +40,7 @@
             padding: 10px;
             background-color: #0194fc;
             color: rgb(254, 254, 254);
-            border: 2px;
+            border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
@@ -59,7 +60,8 @@
 </head>
 <body>
     <div class="login-container">
-        <div class="placeholder">Image</div>
+        <!-- Insert your image here -->
+        <img src="kritan.png" alt="Good Web logo">
         <h2>Sign in</h2>
         <form action="#" method="post">
             <input type="email" name="email" placeholder="Email" required>
