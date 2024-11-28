@@ -1,40 +1,73 @@
-
-<!doctype html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>New Tab</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
     <style>
-      body {
-        background: #3C3C3C;
-        margin: 0;
-      }
-
-      #backgroundImage {
-        border: none;
-        height: 100%;
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        visibility: hidden;
-        width: 100%;
-      }
-
-      [show-background-image] #backgroundImage {
-        visibility: visible;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .login-container {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .placeholder {
+            font-size: 24px;
+            color: #757575;
+            margin-bottom: 20px;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #00040a;
+            color: white;
+            border: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-btn:hover {
+            background-color: #001d3b;
+        }
+        .link {
+            color: #014093;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
     </style>
-  </head>
-  <body>
-    <iframe id="backgroundImage" src=""></iframe>
-    <ntp-app></ntp-app>
-    <script type="module" src="new_tab_page.js"></script>
-    <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
-    <link rel="stylesheet" href="chrome://theme/colors.css?sets=ui,chrome">
-    <link rel="stylesheet" href="shared_vars.css">
-
-    <div><h1>121]
-      
-    </h1></div>
-  </body>
+</head>
+<body>
+    <div class="login-container">
+        <div class="placeholder">Image</div>
+        <h2>Sign in</h2>
+        <form action="#" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Next</button>
+        </form>
+        <p><a href="#" class="link">Forgot email?</a></p>
+        <p><a href="#" class="link">Create account</a></p>
+    </div>
+</body>
 </html>
