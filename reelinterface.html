@@ -14,9 +14,32 @@
          <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
          </div>
         
-        <div class="r" id="r2">
+        <div class="r" id="r3">
             <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
         </div>
+        <div class="r" id="r4">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+        <div class="r" id="r5">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+        <div class="r" id="r6">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+        <div class="r" id="r7">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+        <div class="r" id="r8">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+        <div class="r" id="r9">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+        <div class="r" id="r">
+            <video src="./reel1.mp4" controls width="500px" height="500px" controls autoplay loop></video>
+        </div>
+
+        
     </div>
     <div class="varifying">
         <button id="Old">Previous</button>
@@ -26,6 +49,27 @@
         document.addEventListener("Contain prepared",()=>{
             
         })
+        <script>
+        // Array of all video elements
+        let videos = document.querySelectorAll('video');
+
+        // Speed settings for the 5 video groups
+        let speeds = [1, 0.8, 0.6, 0.4];  // Speed for each group of 5 videos
+
+        // Loop through all videos and apply the speed settings
+        for (let i = 0; i < videos.length; i++) {
+            // Determine which speed to apply (group of 5)
+            let speedIndex = Math.floor(i / 5);  // This gives us 0, 1, 2, or 3
+
+            // Set the playback speed
+            videos[i].playbackRate = speeds[speedIndex];
+
+            // Optionally update the text for each video to show the speed
+            let speedLabel = videos[i].parentElement.querySelector('span');
+            speedLabel.textContent = `Video ${i+1} - ${speeds[speedIndex]}x Speed`;
+        }
+    </script>
+
     </script>
     
 </body>
