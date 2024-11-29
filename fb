@@ -3,119 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShortStream - Watch Short Videos</title>
+  <title>Kid's Fun Zone</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
+    /* Basic Layout */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: lightgreen; /* Very light green border */
     }
 
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 500px;
-      margin: auto;
+      width: 80%;
+      height: 90%;
+      background-color: white;
+      overflow: auto;
+      border-radius: 10px;
+      border: 10px solid lightgreen;
       padding: 20px;
     }
 
-    .video-card {
-      width: 100%;
-      margin-bottom: 20px;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    video {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .video-info {
+    /* Taskbar */
+    .taskbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #ff7f50;
       padding: 10px;
-      text-align: center;
-    }
-
-    .video-info button {
-      background-color: #4285f4;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 5px;
+      font-size: 20px;
+      align-items: center;
+      border-radius: 10px;
     }
 
-    .video-info button:hover {
-      background-color: #357ae8;
+    .taskbar .logo {
+      font-weight: bold;
+      font-size: 24px;
     }
 
-    .scroll-indicator {
-      font-size: 14px;
-      color: #888;
+    .taskbar nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .taskbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Post Section */
+    .post-section {
+      margin-top: 20px;
+      background-color: #ffe4b5;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .post {
+      background-color: #ffffe0;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .post img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .post p {
+      color: #333;
+      font-size: 18px;
+    }
+
+    /* Blur Background Post */
+    .blur-background {
+      position: relative;
+      background-image: url('https://via.placeholder.com/1500');
+      background-size: cover;
+      height: 300px;
+      border-radius: 8px;
+    }
+
+    .blur-background .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       text-align: center;
     }
+
+    .blur-background .content::after {
+      content: "Sorry!! wrong thing popped in your webpage";
+      display: block;
+      margin-top: 20px;
+    }
+
+    /* Vibrant Colors */
+    .button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button:hover {
+      background-color: #ff1493;
+    }
+
+    /* Footer Section */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ff7f50;
+      color: white;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
   </style>
 </head>
 <body>
+
   <div class="container">
-    <div class="video-card">
-      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls autoplay></video>
-      <div class="video-info">
-        <p>Video 1: Fun Cat Video!</p>
-        <button>Like</button>
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <div class="logo">Kid's Fun Zone</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Messages</a>
+        <a href="#">Notifications</a>
+      </nav>
+    </div>
+
+    <!-- Post Section -->
+    <div class="post-section">
+      <div class="post">
+        <p>Hey there! Check out this cool dog video.</p>
+        <img src="https://via.placeholder.com/400x200" alt="Dog Video">
+        <button class="button">Like</button>
+      </div>
+
+      <div class="post">
+        <p>Wow, look at this awesome gaming setup! 😍</p>
+        <img src="https://via.placeholder.com/400x200" alt="Gaming Setup">
+        <button class="button">Like</button>
+      </div>
+
+      <!-- Blur Background Post -->
+      <div class="blur-background">
+        <div class="content"></div>
+      </div>
+
+      <div class="post">
+        <p>Check out this science experiment!</p>
+        <img src="https://via.placeholder.com/400x200" alt="Science Experiment">
+        <button class="button">Like</button>
+      </div>
+
+      <div class="post">
+        <p>New toy reviews! Watch this awesome unboxing video.</p>
+        <img src="https://via.placeholder.com/400x200" alt="Toy Review">
+        <button class="button">Like</button>
       </div>
     </div>
 
-    <div class="video-card">
-      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls autoplay></video>
-      <div class="video-info">
-        <p>Video 2: Awesome Dance Moves!</p>
-        <button>Like</button>
-      </div>
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2024 Kid's Fun Zone</p>
     </div>
 
-    <!-- More videos can go here -->
-
-    <div class="scroll-indicator">Scroll Speed: Normal</div>
   </div>
 
-  <script>
-    let scrollDuration = 0; // Time spent scrolling in seconds
-    let scrollSpeed = 1; // Initial scroll speed
+  <!-- Background Sound -->
+  <audio autoplay loop>
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
 
-    // Track scroll time and slow down the speed every 2 minutes (120 seconds)
-    setInterval(function() {
-      scrollDuration += 1;
-
-      if (scrollDuration % 120 === 0) { // Every 2 minutes
-        scrollSpeed -= 0.1; // Slow down by 0.1x
-        document.querySelector('.scroll-indicator').innerText = `Scroll Speed: Slow (${scrollSpeed.toFixed(1)}x)`;
-      }
-    }, 1000); // Check every second
-
-    // Override default scroll behavior to apply the speed reduction
-    let lastScrollTime = Date.now();
-    window.addEventListener('wheel', function(e) {
-      let currentTime = Date.now();
-      let timeDiff = (currentTime - lastScrollTime) / 1000; // in seconds
-
-      if (timeDiff < 1) return; // ignore rapid scrolling events
-
-      // Adjust scroll speed based on elapsed time
-      if (scrollSpeed < 1) {
-        let slowFactor = Math.max(scrollSpeed, 0.3); // Prevent from slowing too much
-        window.scrollBy(0, e.deltaY * slowFactor);
-      } else {
-        window.scrollBy(0, e.deltaY);
-      }
-
-      lastScrollTime = currentTime;
-    });
-  </script>
 </body>
 </html>
