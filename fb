@@ -3,182 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KidSpace - Social for Kids</title>
+  <title>ShortStream - Watch Short Videos</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f2f9fc;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    header {
-      background-color: #4CAF50;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-
-    header h1 {
-      font-size: 36px;
-    }
-
-    .main-container {
+    .container {
       display: flex;
-      justify-content: space-around;
-      padding: 30px;
-    }
-
-    .sidebar {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      width: 200px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .sidebar h3 {
-      font-size: 20px;
-      color: #4CAF50;
-    }
-
-    .profile {
-      display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .profile img {
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      margin-right: 10px;
-    }
-
-    .profile p {
-      font-size: 18px;
-    }
-
-    .wall {
-      flex: 1;
+      max-width: 500px;
+      margin: auto;
       padding: 20px;
-      background-color: #fff;
+    }
+
+    .video-card {
+      width: 100%;
+      margin-bottom: 20px;
+      background: white;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .post {
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      padding: 15px;
+    video {
+      width: 100%;
+      border-radius: 8px;
     }
 
-    .post h4 {
-      color: #4CAF50;
-      font-size: 20px;
-      margin-bottom: 5px;
+    .video-info {
+      padding: 10px;
+      text-align: center;
     }
 
-    .post p {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .post button {
-      background-color: #4CAF50;
+    .video-info button {
+      background-color: #4285f4;
       color: white;
       border: none;
-      border-radius: 15px;
-      padding: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
       cursor: pointer;
+      margin-top: 5px;
     }
 
-    .post button:hover {
-      background-color: #45a049;
+    .video-info button:hover {
+      background-color: #357ae8;
     }
 
-    .footer {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .footer p {
+    .scroll-indicator {
       font-size: 14px;
-    }
-
-    .avatar {
-      margin-bottom: 20px;
+      color: #888;
       text-align: center;
-    }
-
-    .avatar img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
     }
   </style>
 </head>
 <body>
-
-  <!-- Header Section -->
-  <header>
-    <h1>KidSpace</h1>
-    <p>A Safe Social Space for Kids!</p>
-  </header>
-
-  <!-- Main Content -->
-  <div class="main-container">
-    <!-- Sidebar: User Profile and Menu -->
-    <div class="sidebar">
-      <div class="profile">
-        <img src="https://via.placeholder.com/70" alt="User Avatar">
-        <p>Welcome, Kid!</p>
-      </div>
-      <div class="avatar">
-        <img src="https://via.placeholder.com/100" alt="Avatar">
-        <p>Select Avatar</p>
-      </div>
-      <h3>Menu</h3>
-      <ul>
-        <li>My Profile</li>
-        <li>My Friends</li>
-        <li>Messages</li>
-        <li>Settings</li>
-      </ul>
-    </div>
-
-    <!-- Main Wall: Posts Section -->
-    <div class="wall">
-      <div class="post">
-        <h4>Happy Thoughts</h4>
-        <p>Today I learned to draw a dinosaur! I’m so proud of it!</p>
-        <button>Like</button>
-      </div>
-
-      <div class="post">
-        <h4>Fun with Stickers!</h4>
-        <p>I just created a cool sticker of my dog! 🐶</p>
-        <button>Like</button>
-      </div>
-
-      <div class="post">
-        <h4>Craft Time</h4>
-        <p>Check out the awesome paper airplane I made! ✈️</p>
+  <div class="container">
+    <div class="video-card">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls autoplay></video>
+      <div class="video-info">
+        <p>Video 1: Fun Cat Video!</p>
         <button>Like</button>
       </div>
     </div>
+
+    <div class="video-card">
+      <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls autoplay></video>
+      <div class="video-info">
+        <p>Video 2: Awesome Dance Moves!</p>
+        <button>Like</button>
+      </div>
+    </div>
+
+    <!-- More videos can go here -->
+
+    <div class="scroll-indicator">Scroll Speed: Normal</div>
   </div>
 
-  <!-- Footer Section -->
-  <div class="footer">
-    <p>KidSpace &copy; 2024 | A Safe Place for Kids to Connect</p>
-  </div>
+  <script>
+    let scrollDuration = 0; // Time spent scrolling in seconds
+    let scrollSpeed = 1; // Initial scroll speed
 
+    // Track scroll time and slow down the speed every 2 minutes (120 seconds)
+    setInterval(function() {
+      scrollDuration += 1;
+
+      if (scrollDuration % 120 === 0) { // Every 2 minutes
+        scrollSpeed -= 0.1; // Slow down by 0.1x
+        document.querySelector('.scroll-indicator').innerText = `Scroll Speed: Slow (${scrollSpeed.toFixed(1)}x)`;
+      }
+    }, 1000); // Check every second
+
+    // Override default scroll behavior to apply the speed reduction
+    let lastScrollTime = Date.now();
+    window.addEventListener('wheel', function(e) {
+      let currentTime = Date.now();
+      let timeDiff = (currentTime - lastScrollTime) / 1000; // in seconds
+
+      if (timeDiff < 1) return; // ignore rapid scrolling events
+
+      // Adjust scroll speed based on elapsed time
+      if (scrollSpeed < 1) {
+        let slowFactor = Math.max(scrollSpeed, 0.3); // Prevent from slowing too much
+        window.scrollBy(0, e.deltaY * slowFactor);
+      } else {
+        window.scrollBy(0, e.deltaY);
+      }
+
+      lastScrollTime = currentTime;
+    });
+  </script>
 </body>
 </html>
