@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-header">
+      <img src="logo.jpg" alt="Logo">
+      <h2>Registration Form</h2>
+    </div>
+    <div class="form-body">
+      <form id="registration-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="form-group">
+          <label for="father-name">Father's Name:</label>
+          <input type="text" id="father-name" name="father_name" placeholder="Enter father's name" required>
+        </div>
+        <div class="form-group">
+          <label for="mother-name">Mother's Name:</label>
+          <input type="text" id="mother-name" name="mother_name" placeholder="Enter mother's name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter email address" required>
+        </div>
+        <div class="form-group">
+          <label for="birth-certificate">Upload Birth Certificate:</label>
+          <input type="file" id="birth-certificate" name="birth_certificate" accept=".pdf, .jpg, .png" required>
+        </div>
+        <div class="form-group">
+          <label for="citizenship-parents">Upload Parents' Citizenship Certificate:</label>
+          <input type="file" id="citizenship-parents" name="citizenship_parents" accept=".pdf, .jpg, .png" required>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="submit-button">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
