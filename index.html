@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      
+      .form-container {
+        width: 95%; /* Increased width */
+        max-width: 700px; /* Optional max-width for better scaling */
+        height: 95%; /* Increased height */
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        padding: 30px;
+        box-sizing: border-box;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+      }
+      
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      .form-header img {
+        width: 120px; /* Logo size */
+        height: 120px; /* Logo size */
+        border-radius: 50%; /* Circular shape */
+        margin-right: 20px;
+        position: absolute;
+        top: 10px; /* Moved logo slightly upward */
+        right: 30px;
+      }
+      
+      .form-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        flex-grow: 1;
+        text-align: center;
+      }
+      
+      .form-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+      }
+      
+      .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      
+      .form-group input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 1rem;
+      }
+      
+      .form-group input[type="file"] {
+        padding: 3px;
+      }
+      
+      .form-footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      
+      .submit-button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #007bff;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .submit-button:hover {
+        background-color: #0056b3;
+      }
+
+    </style>
+  <div class="form-container">
+    <div class="form-header">
+      <img src="logo.jpg" alt="Logo">
+      <h2>Registration Form</h2>
+    </div>
+    <div class="form-body">
+      <form id="registration-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="form-group">
+          <label for="father-name">Father's Name:</label>
+          <input type="text" id="father-name" name="father_name" placeholder="Enter father's name" required>
+        </div>
+        <div class="form-group">
+          <label for="mother-name">Mother's Name:</label>
+          <input type="text" id="mother-name" name="mother_name" placeholder="Enter mother's name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter email address" required>
+        </div>
+        <div class="form-group">
+          <label for="birth-certificate">Upload Birth Certificate:</label>
+          <input type="file" id="birth-certificate" name="birth_certificate" accept=".pdf, .jpg, .png" required>
+        </div>
+        <div class="form-group">
+          <label for="citizenship-parents">Upload Parents' Citizenship Certificate:</label>
+          <input type="file" id="citizenship-parents" name="citizenship_parents" accept=".pdf, .jpg, .png" required>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="submit-button"><a href="form1.html">Submit</a></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

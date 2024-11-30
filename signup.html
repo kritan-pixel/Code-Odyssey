@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 5;
+            background-color: #d3efda;
+        }
+        .login-container {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(143, 106, 106, 0.1);
+            text-align: center;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 1px solid #2b2a2a;
+            border-radius: 50%;
+        }
+        input[type="email"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #2b2a2a;
+            border-radius: 4px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0194fc;
+            color: rgb(254, 254, 254);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-btn:hover {
+            background-color: #001d3b;
+        }
+        .link {
+            color: #014093;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Insert your image here -->
+        <img src="logo.jpg" alt="Good Web logo">
+        <h2>Sign in</h2>
+        <form action="#" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <a href="hi.html"><button type="submit" class="login-btn">Login</a></button>
+        </form>
+        <p><a href="#" class="link">Forgot email?</a></p>
+        <p><a href="#" class="link"><a href="aboutus.html">Create account</a></p>
+    </div>
+</body>
+</html>

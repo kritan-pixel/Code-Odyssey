@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2fdf2; /* Soft green background */
+      font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+      width: 70%;
+      height: auto;
+      max-height: 80%;
+      border: 15px solid transparent;
+      border-radius: 30px;
+      background: linear-gradient(to bottom right, #e8e8e8, #fdfdfd); /* Blended grey effect */
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 28px; /* Larger font */
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #222; /* Darker black for heading */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background-color: #e6f7ff; /* Light blue background */
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #4CAF50; /* Green border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #444; /* Slightly softer black */
+    }
+
+    .restrictions ul {
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .allowances input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2); /* Larger checkboxes */
+    }
+
+    .allowances div {
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .youtube-section {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .youtube-section input {
+      display: block;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    .youtube-section input:focus {
+      border-color: #4CAF50; /* Green highlight on focus */
+      outline: none;
+    }
+
+    .submit-btn {
+      align-self: flex-end;
+      background-color: #4CAF50; /* Green color */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+      transform: scale(1.05); /* Slight enlargement on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heading">Go through the process</div>
+
+    <!-- Restrictions Section -->
+    <div class="section restrictions">
+      <div class="section-title">What are restricted in our framework:</div>
+      <ul>
+        <li>Adult sites</li>
+        <li>Violence</li>
+        <li>Gore</li>
+        <li>Over-time exposure to social media</li>
+        <li>Hours of reels watching</li>
+      </ul>
+    </div>
+
+    <!-- Allowances Section -->
+    <div class="section allowances">
+      <div class="section-title">What are you allowing to watch?</div>
+      <div><input type="checkbox" id="kidsbook"><label for="kidsbook">Kidsbook</label></div>
+      <div><input type="checkbox" id="youtube-shorts"><label for="youtube-shorts">Youtube Shorts</label></div>
+      <div><input type="checkbox" id="gmail"><label for="gmail">Gmail</label></div>
+      <div><input type="checkbox" id="library"><label for="library">Library</label></div>
+      <div><input type="checkbox" id="others"><label for="others">Others</label></div>
+
+      <div class="youtube-section">
+        <label for="youtube-remove">Which channel would you want to remove?</label>
+        <input type="text" id="youtube-remove" placeholder="Enter channel name">
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="submit-btn"><a href="payment.html">Submit</a></button>
+  </div>
+</body>
+</html>

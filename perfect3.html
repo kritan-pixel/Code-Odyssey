@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KidBook - Phone Book</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa; /* Light bluish background */
+      color: #333;
+      margin: 0;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      max-height: 95vh;
+      overflow-y: auto;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border: 5px solid #80deea;
+      padding: 20px;
+    }
+    /* Sticky Taskbar */
+    .taskbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0288d1;
+      padding: 10px 20px;
+      color: white;
+      font-size: 18px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-radius: 10px;
+    }
+    .taskbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .taskbar nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .taskbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Timer in Taskbar */
+    .taskbar .timer {
+      font-size: 18px;
+    }
+    /* Dropdown for Messages and Notifications */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #81d4fa;
+      width: 300px; /* Increased size */
+      max-height: 300px; /* Increased size */
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      z-index: 2000;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+    }
+    .dropdown-content p {
+      background: #e1f5fe;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .dropdown-content p:hover {
+      background: #0288d1;
+      color: white;
+      transform: scale(1.05);
+    }
+    .dropdown-content img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    .friend-icons img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid white;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    /* Pop-up User Details */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #b3e5fc;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      text-align: left;
+      font-size: 18px;
+      width: 400px;
+    }
+    .popup h4 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+    .popup p {
+      margin-bottom: 10px;
+    }
+    /* Overlay to Close Pop-ups */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1500;
+    }
+    /* Posts */
+    .post {
+      background-color: #e3f2fd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .post img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .post .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .post .buttons button {
+      background-color: #0288d1;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+    }
+    .post .buttons button:hover {
+      background-color: #01579b;
+    }
+    /* Timer Popup */
+    .timer-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: black; /* Black background */
+      color: white;
+      width: 50%;
+      height: 60%;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+      border-radius: 15px;
+      z-index: 2000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    .timer-popup .section-c {
+      height: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white; /* Text color changed to white for visibility on black background */
+      font-size: 24px;
+    }
+    .timer-popup .section-d {
+      display: flex;
+      height: 80%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .timer-popup .section-d .battery {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 10px;
+      width: 20%;
+    }
+    .timer-popup .battery .battery-line {
+      width: 100%;
+      height: 15px;
+      background-color: yellow;
+      border-radius: 5px;
+      transition: height 0.5s ease;
+    }
+    .timer-popup .section-d .image {
+      width: 100%;  /* Make image container take up the full width */
+      height: 100%; /* Make image container take up the full height */
+      background-color: #81d4fa;
+      border-radius: 10px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .timer-popup .section-d .image img {
+      width: 100%; /* Image will stretch to fill the container */
+      height: 100%; /* Image will stretch to fill the container */
+      object-fit: cover; /* Ensures the image covers the entire space without distorting its aspect ratio */
+    }
+    .timer-popup button {
+      padding: 10px 20px;
+      background-color: #0288d1;
+      border-radius: 5px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .timer-popup button:hover {
+      background-color: #01579b;
+    }
+    /* Back Button Section */
+    .back-button {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #01579b;
+    }
+    .back-button:hover {
+      text-decoration: underline;
+    }
+    /* Hide overlay initially */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closePopups()"></div>
+  <div class="container">
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <div class="logo">KidBook</div>
+      <nav>
+        <a href="#">Home</a>
+        <div class="dropdown">
+          <a href="#">Messages</a>
+          <div class="dropdown-content" id="messages">
+            <p><img src="https://via.placeholder.com/40" alt="Friend 1"><b>Friend 1:</b>  Aau khelna jaam</p>
+            <p><img src="https://via.placeholder.com/40" alt="Friend 2"><b>Friend 2:</b>  HW sakeu, Aavyan?</p>
+            <p><img src="https://via.placeholder.com/40" alt="Friend 3"><b>Friend 3:</b>  Roblox khelnam</p>
+            <p><img src="https://via.placeholder.com/40" alt="Friend 4"><b>Friend 4:</b>  Maam khaaeu?</p>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#">Notifications</a>
+          <div class="dropdown-content" id="notifications">
+            <p><img src="https://via.placeholder.com/40" alt="Friend 1">Friend 1 liked your post</p>
+            <p><img src="https://via.placeholder.com/40" alt="Friend 2">Friend 2 commented: "Looks fun!"</p>
+            <p><img src="https://via.placeholder.com/40" alt="Friend 3">Friend 3 sent you a friend request</p>
+          </div>
+        </div>
+        <div class="friend-icons">
+          <img src="https://via.placeholder.com/30" alt="Friend 2" id="userDetailsIcon">
+        </div>
+      </nav>
+      <div class="timer" id="timerDisplay">00:10</div>
+    </div>
+    <!-- Pop-up -->
+    <div class="popup" id="userPopup">
+      <h4>User Details</h4>
+      <p><strong>User:</strong> Aavyan Marasini</p>
+      <p><strong>Age:</strong> 8</p>
+      <p><strong>Address:</strong> Bhaktapur</p>
+      <p><strong>Parent's Name:</strong> Shanta Marasini</p>
+    </div>
+    <!-- Posts -->
+    <div class="post">
+      <p>Check out my new toy collection!</p>
+      <img src="https://via.placeholder.com/400x200" alt="Toys">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+<div class="post">
+      <p>Check out my new toy collection!</p>
+      <img src="https://via.placeholder.com/400x200" alt="Toys">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+    </div>
+    <div class="post">
+      <p>Roblox Adventure is fun!</p>
+      <img src="https://via.placeholder.com/400x200" alt="Roblox">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+    </div>
+    <div class="post">
+      <p>Just finished my homework!</p>
+      <img src="https://via.placeholder.com/400x200" alt="Homework">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+    </div>
+    <div class="post">
+      <p>Sorry, it mistakenly popped out to your feed.</p>
+      <img src="https://via.placeholder.com/400x200" alt="Error">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+    </div>
+    <div class="post">
+      <p>Went to the park today!</p>
+      <img src="https://via.placeholder.com/400x200" alt="Park">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+    </div>
+    <div class="post">
+      <p>Learning how to draw!</p>
+      <img src="https://via.placeholder.com/400x200" alt="Drawing">
+      <div class="buttons">
+        <button>Like</button>
+        <button>Comment</button>
+        <button>Share</button>
+      </div>
+    </div>
+  </div>
+    </div>
+    
+    </div>
+  </div>
+  <!-- Time's Up Popup -->
+  <div class="timer-popup" id="timerPopup">
+    <div class="section-c">
+      Care your organs<br> 
+Save your eyes , ear and brain ,dear !!
+    </div>
+    <div class="section-d">
+      <div class="battery" id="batteryDemo">
+        <!-- 5 Green Lines initially -->
+        <div class="battery-line" id="batteryLine1"></div>
+        <div class="battery-line" id="batteryLine2"></div>
+        <div class="battery-line" id="batteryLine3"></div>
+       
+        
+      </div>
+      <div class="image">
+        <img src="sudarshan.jpg" alt="Image" />
+      </div>
+      <button class="back-button" id="backButton"><a href="perfect4.html">Back</a></button>
+      <button class="back-button" id="returnButton" style="display: none;">Return</button>
+    </div>
+  </div>
+  <script>
+    // Close Popups
+    function closePopups() {
+      document.getElementById("userPopup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+    // Close Time's Up Popup
+     let timer = 10; // 10 seconds for easier testing
+    let batteryLevel = 5; // 5 green lines initially
+    let timerInterval;
+    let batteryDepleted = false; // Flag to track when battery is depleted
+    // Timer function to count down
+    function startTimer() {
+      timerInterval = setInterval(function() {
+        timer--;
+        updateTimerDisplay();
+        if (timer <= 0) {
+          clearInterval(timerInterval);
+          showTimeUpPopup();
+        }
+      }, 1000);
+    }
+    // Function to update timer display
+    function updateTimerDisplay() {
+      const seconds = timer % 60;
+      document.getElementById("timerDisplay").textContent = `00:${String(seconds).padStart(2, '0')}`;
+    }
+    // Show Time's Up Popup
+    function showTimeUpPopup() {
+      document.getElementById("timerPopup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+    // Close pop-ups and overlay
+    function closePopups() {
+      document.getElementById("timerPopup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+    // Battery depletion logic
+    function updateBattery() {
+      if (batteryLevel > 0) {
+        batteryLevel--;
+        const batteryLineId = `batteryLine${6 - batteryLevel}`;
+        document.getElementById(batteryLineId).style.height = "0px"; // Decrease battery line height
+      }
+      if (batteryLevel <= 0 && !batteryDepleted) {
+        batteryDepleted = true;
+        document.getElementById("backButton").style.display = "none";
+        document.getElementById("returnButton").style.display = "block";
+      }
+    }
+    // Handle Back Button Click
+    document.getElementById("backButton").addEventListener("click", function() {
+      // Reset timer to 10 seconds
+      timer = 10;
+      batteryDepleted = false;
+      batteryLevel = Math.max(batteryLevel - 1, 0); // Decrease battery level when back is clicked
+      document.getElementById("batteryDemo").childNodes.forEach((line, index) => {
+        line.style.height = index < batteryLevel ? "15px" : "0px"; // Update battery lines
+      });
+      clearInterval(timerInterval); // Stop previous timer
+      startTimer(); // Restart the timer
+    });
+    // Handle Return Button Click
+    document.getElementById("returnButton").addEventListener("click", function() {
+      closePopups(); // Close pop-up after return
+    });
+    // Start the timer on page load
+    window.onload = startTimer;
+  </script>
+</body>
+</html>

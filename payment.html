@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Payment Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5fff5; /* Very very very light green */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 60%;
+      height: 70%;
+      background: rgba(255, 255, 255, 0.9); /* Blended effect */
+      border: 3px solid #ccc;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      padding: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .content {
+      height: 100%;
+      padding: 10% 0; /* 10% border top and bottom */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .upper-part, .lower-part {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .upper-part h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .upper-part img {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .payment-boxes {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .payment-box {
+      width: 48%;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .e-sewa {
+      background-color: #4CAF50; /* Green */
+    }
+
+    .khalti {
+      background-color: #6A1B9A; /* Violet */
+    }
+
+    .lower-part {
+      padding-top: 10px;
+    }
+
+    .lower-part label {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .lower-part input[type="checkbox"] {
+      margin-top: 15px;
+      transform: scale(1.2);
+    }
+
+    /* Style for the OK button */
+    .ok-button {
+      background-color: #4CAF50; /* Green */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .ok-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <!-- Upper Part -->
+      <div class="upper-part">
+        <h1>Pay for the Subscription</h1>
+        <img src="qr.png" alt="QR Code">
+      </div>
+
+      <!-- Payment Methods Boxes -->
+      <div class="payment-boxes">
+        <div class="payment-box e-sewa"><a href="https://esewa.com.np/#/home">  Pay via e-Sewa </a>
+        
+        </div>
+        <div class="payment-box khalti">
+          <a href="https://web.khalti.com/">Pay via Khalti</a>
+        </div>
+      </div>
+
+      <!-- Lower Part -->
+      <div class="lower-part">
+        <label>
+          <input type="checkbox">
+          The account will not work after the minor reaches age 16.
+        </label>
+        
+        <!-- OK Button -->
+        <button class="ok-button"><a href="hi.html">OK</a></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

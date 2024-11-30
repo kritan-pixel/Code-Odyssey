@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Webpage</title>
+    <style>
+        /* Page Styling */
+        body {
+            margin: 50;
+            padding: 0;
+            background-color: #8fdea4; /* More visible light green background outside the rectangle */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+        }
+        .container {
+            width: 80%; /* Wider rectangular area */
+            max-width: 1200px; /* Prevent the rectangle from becoming too wide on large screens */
+            background-color: #e6f7ff; /* Very very light blue shade for the container */
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 50px;
+        }
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+        .section:first-child {
+            border-bottom: 0px solid #70c5fd; /* Separate the two sections */
+            padding-bottom: 50px;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 50%; /* Circular placeholder for logo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Crop any overflowed image */
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .search-bar {
+            width: 60%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #050505;
+            margin-top: 50px;
+            border-radius: 100px;
+            background-color: #ffffff; /* Very very light red */
+            text-align: center;
+            transition: background-color 0.3s, border-color 0.3s; /* Smooth transition effect */
+        }
+        .search-bar:hover,
+        .search-bar:focus {
+            background-color: #ffb3b3; /* Softer, lighter red for hover/focus */
+            border-color: #cc6666; /* Slightly darker border for subtle contrast */
+            outline: none;
+        }
+        .icons-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            width: 80%;
+        }
+        .icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ddd;
+            border: 2px solid #bbb;
+            border-radius: 50px; /* Slightly rounded corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Crop any overflowed image */
+            cursor: pointer;
+        }
+        .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .icon:hover {
+            background-color: #6ab5f7; /* Light blue hover effect */
+            border-color: #000000;
+        }
+        .upload-input {
+            display: none; /* Hide file input */
+        }
+        .upload-label {
+            cursor: pointer;
+            color: #777;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- First Section: Logo and Search Bar -->
+        <div class="section">
+            <!-- Placeholder for Logo -->
+            <div class="logo">
+                <img src="gud web.png" alt="Good Web logo">
+                </label>
+            </div>
+            <!-- Search Bar -->
+            <input  
+                type="text"
+                class="search-bar"
+                placeholder="Search here..."
+            />
+        </div>
+        <!-- Second Section: Icons/Shortcuts -->
+        <div class="section">
+            <div class="icons-container">
+                <!-- Placeholder for icons -->
+                <div class="icon">
+                 <a href="https://www.youtube.com/"  > <img src="Youtube_logo.png" alt="youtube"></a>
+                    </label>
+                </div>
+                <div class="icon">
+                  <a href="perfect.html" > <img src="output.jpg" alt="kidbook"></a>
+                    </label>
+                </div>
+                <div class="icon">
+                   <a href="https://workspace.google.com/intl/en-US/gmail/" ><img src="download.png" alt="Gmail"></a>
+                    </label>
+                </div>
+                <div class="icon">
+                    <img src="elibrary2-300x267.png" alt="E-Library">
+                    </label>
+                </div>
+                <div class="icon">
+                    <a href="game.html">"<img src="quiz.jpg" alt="Quiz"></a>
+                    </label>
+                </div>
+                <div class="icon">
+                   <a href="reel.html"><img src="youtube-shorts-black3609.jpg" alt="Shorts"></a> 
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function previewImage(event, elementId) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                document.getElementById(elementId).src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

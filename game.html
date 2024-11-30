@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Quiz, Drawing, and Calculator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 9999; /* Make sure it appears on top of other elements */
+    }
+
+    .back-btn:hover {
+      background-color: #d4503c;
+      transform: scale(1.1);
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      height: 100vh;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      background-color: #ffffff;
+      border: 2px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ff6347;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .quiz-container {
+      background-color: #f9f9f9;
+    }
+
+    .drawing-container {
+      background-color: #f1faff;
+    }
+
+    .calculator-container {
+      background-color: #fff8f1;
+    }
+
+    .section:hover {
+      transform: scale(1.05);
+    }
+
+    .quiz-container .question {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .quiz-container .options button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .quiz-container .options button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    .quiz-container .result {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      color: #28a745;
+      text-align: center;
+    }
+
+    .quiz-container .restart-btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .quiz-container .restart-btn:hover {
+      background-color: #d4503c;
+      transform: scale(1.1);
+    }
+
+    /* Drawing Tool */
+    canvas {
+      border: 2px solid #333;
+      border-radius: 10px;
+      width: 90%;
+      height: 70%;
+    }
+
+    .canvas-container button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .canvas-container button:hover {
+      background-color: #d4503c;
+      transform: scale(1.1);
+    }
+
+    /* Calculator */
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .calculator input {
+      grid-column: span 4;
+      padding: 15px;
+      font-size: 1.5rem;
+      text-align: right;
+      background-color: #f7f7f7;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .calculator input:focus {
+      background-color: #ffffff;
+    }
+
+    .calculator button {
+      padding: 20px;
+      font-size: 1.2rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .calculator button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+ <a href="hi.html" ><button class="back-btn" onclick="window.history.back()">←</button></a>
+
+  <div class="main-container">
+    <!-- Quiz Section -->
+    <div class="section quiz-container">
+      <h1>Kids Quiz</h1>
+      <div class="question"></div>
+      <div class="options"></div>
+      <div class="result"></div>
+      <button class="restart-btn" style="display: none;">Restart Quiz</button>
+    </div>
+
+    <!-- Drawing Section -->
+    <div class="section drawing-container">
+      <h1>Drawing Tool</h1>
+      <div class="canvas-container">
+        <canvas id="drawingCanvas"></canvas><br>
+        <button onclick="clearCanvas()">Clear Drawing</button>
+      </div>
+    </div>
+
+    <!-- Calculator Section -->
+    <div class="section calculator-container">
+      <h1>Calculator</h1>
+      <div class="calculator">
+        <input type="text" id="calcInput" readonly>
+        <button onclick="appendCalc('7')">7</button>
+        <button onclick="appendCalc('8')">8</button>
+        <button onclick="appendCalc('9')">9</button>
+        <button onclick="appendCalc('/')">÷</button>
+        <button onclick="appendCalc('4')">4</button>
+        <button onclick="appendCalc('5')">5</button>
+        <button onclick="appendCalc('6')">6</button>
+        <button onclick="appendCalc('*')">×</button>
+        <button onclick="appendCalc('1')">1</button>
+        <button onclick="appendCalc('2')">2</button>
+        <button onclick="appendCalc('3')">3</button>
+        <button onclick="appendCalc('-')">−</button>
+        <button onclick="appendCalc('0')">0</button>
+        <button onclick="appendCalc('.')">.</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="appendCalc('+')">+</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Quiz Logic
+    const questions = [
+      { question: "What is 2 + 2?", options: ["3", "4", "5", "6"], answer: "4" },
+      { question: "What is the color of the sky?", options: ["Blue", "Green", "Red", "Yellow"], answer: "Blue" },
+      { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], answer: "8" },
+      { question: "What do bees make?", options: ["Milk", "Honey", "Jam", "Bread"], answer: "Honey" },
+      { question: "What is 5 × 5?", options: ["20", "25", "30", "35"], answer: "25" }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    const questionContainer = document.querySelector(".question");
+    const optionsContainer = document.querySelector(".options");
+    const resultElement = document.querySelector(".result");
+    const restartButton = document.querySelector(".restart-btn");
+
+    function startQuiz() {
+      score = 0;
+      currentQuestionIndex = 0;
+      showQuestion();
+    }
+
+    function showQuestion() {
+      if (currentQuestionIndex >= questions.length) {
+        showResult();
+        return;
+      }
+      const currentQuestion = questions[currentQuestionIndex];
+      questionContainer.textContent = currentQuestion.question;
+      optionsContainer.innerHTML = "";
+      currentQuestion.options.forEach(option => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.onclick = () => checkAnswer(option);
+        optionsContainer.appendChild(button);
+      });
+      resultElement.textContent = "";
+      restartButton.style.display = "none";
+    }
+
+    function checkAnswer(selectedOption) {
+      const correctAnswer = questions[currentQuestionIndex].answer;
+      if (selectedOption === correctAnswer) score++;
+      currentQuestionIndex++;
+      showQuestion();
+    }
+
+    function showResult() {
+      questionContainer.textContent = "Quiz Finished!";
+      optionsContainer.innerHTML = "";
+      resultElement.textContent = `You scored ${score} out of ${questions.length}!`;
+      restartButton.style.display = "block";
+    }
+
+    restartButton.onclick = startQuiz;
+    startQuiz();
+
+    // Drawing Tool
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', () => isDrawing = true);
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      ctx.beginPath();
+    });
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(event) {
+      if (!isDrawing) return;
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#ff6347';
+      ctx.lineTo(event.offsetX, event.offsetY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(event.offsetX, event.offsetY);
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Calculator Logic
+    function appendCalc(value) {
+      document.getElementById("calcInput").value += value;
+    }
+
+    function calculateResult() {
+      const input = document.getElementById("calcInput").value;
+      try {
+        const result = eval(input);
+        document.getElementById("calcInput").value = result;
+      } catch {
+        document.getElementById("calcInput").value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Shorts Clone with Sound Toggle</title>
+  <style>
+    body git {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e9c7c1;
+      overflow: hidden;
+    }
+
+    /* Style for the back button */
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: black;
+    }
+
+    .shorts-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+
+    .short {
+      scroll-snap-align: start;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .short video {
+      width: 70%;
+      max-width: 400px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      color: #fff;
+      z-index: 10;
+      text-align: center;
+      width: 90%;
+    }
+
+    .overlay h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .overlay p {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+    }
+
+    .sound-toggle {
+      position: absolute;
+      bottom: 15%;
+      right: 10%;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: none;
+      color: #fff;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 20;
+    }
+
+    .sound-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <button class="back-button" onclick="window.history.back();">⬅️</button>
+
+  <div class="shorts-container">
+    <!-- 20 videos with sound toggle -->
+    <div class="short">
+      <video src="reel1.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 1</h3>
+        <p>Description for Reel 1...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel2.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 2</h3>
+        <p>Description for Reel 2...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel3.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 3</h3>
+        <p>Description for Reel 3...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel4.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 4</h3>
+        <p>Description for Reel 4...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel5.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 5</h3>
+        <p>Description for Reel 5...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel6.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 6</h3>
+        <p>Description for Reel 6...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel7.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 7</h3>
+        <p>Description for Reel 7...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel8.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 8</h3>
+        <p>Description for Reel 8...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel9.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 9</h3>
+        <p>Description for Reel 9...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel10.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 10</h3>
+        <p>Description for Reel 10...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel11.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 11</h3>
+        <p>Description for Reel 11...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel12.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 12</h3>
+        <p>Description for Reel 12...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel15.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 13</h3>
+        <p>Description for Reel 13...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel14.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 14</h3>
+        <p>Description for Reel 14...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 15</h3>
+        <p>Description for Reel 15...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel16.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 16</h3>
+        <p>Description for Reel 16...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel17.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 17</h3>
+        <p>Description for Reel 17...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel4.mp4" muted autoplay loop></video>
+      <button class="sound-toggle">🔇</button>
+      <div class="overlay">
+        <h3>Video Title 18</h3>
+        <p>Description for Reel 18...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel19.mp4" muted autoplay loop></video>
+      <button class="sound-toggle"></button>
+      <div class="overlay">
+        <h3>Video Title 19</h3>
+        <p>Description for Reel 19...</p>
+      </div>
+    </div>
+    <div class="short">
+      <video src="reel20.mp4"></video>
+      <button class="sound-toggle"></button>
+      <div class="overlay">
+        <h3>Video Title 20</h3>
+        <p>Description for Reel 20...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const videos = document.querySelectorAll(".short video");
+      const soundButtons = document.querySelectorAll(".sound-toggle");
+
+      // Toggle sound on/off for each video
+      soundButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          const video = videos[index];
+
+          // Mute all other videos
+          videos.forEach((v, i) => {
+            if (i !== index) {
+              v.muted = true; // Mute other videos
+              soundButtons[i].textContent = "🔇"; // Update icon for other videos
+            }
+          });
+
+          // Toggle the sound for the current video
+          if (video.muted) {
+            video.muted = false;
+            button.textContent = "🔊"; // Change the icon when sound is enabled
+          } else {
+            video.muted = true;
+            button.textContent = "🔇"; // Change the icon when sound is muted
+          }
+        });
+      });
+
+      // Mute videos until reel 16 while scrolling
+      const shortsContainer = document.querySelector(".shorts-container");
+      shortsContainer.addEventListener("scroll", () => {
+        // Scroll position logic
+        if (shortsContainer.scrollTop > 0) {
+          // Mute videos until reel 16
+          videos.forEach((video, index) => {
+            if (index < 16) {
+              video.muted = true;
+            }
+          });
+        } else {
+          // Unmute from reel 16 onwards
+          videos.forEach((video, index) => {
+            if (index >= 16) {
+              video.muted = false;
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
